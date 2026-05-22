@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties ───────────── */
+:root {
+  --navy:   #0C1B33;
+  --gold:   #C9A84C;
+  --gold2:  #E8C97A;
+  --cream:  #F8F3EC;
+  --cream2: #EDE8DF;
+  --teal:   #1A8C7A;
+  --teal2:  #22B89E;
+  --border: #E5E0D8;
+}
+
+/* ── Base Styles ─────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply font-sans bg-cream-100 text-navy antialiased;
+  }
+
+  h1, h2, h3 { @apply font-display; }
+
+  /* Remove spinner from number inputs */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button { -webkit-appearance: none; }
+  input[type='number'] { -moz-appearance: textfield; }
+}
+
+/* ── Component Utilities ─────────────── */
+@layer components {
+  /* Ticker animation */
+  .ticker-scroll { animation: ticker 32s linear infinite; }
+
+  /* Section patterns */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(201,168,76,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,.07) 1px, transparent 1px);
+    background-size: 52px 52px;
+  }
+
+  /* Nav scrollbar hide */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card-hover;
+  }
+
+  /* Pulsing dot */
+  .pulse-dot::before {
+    content: '';
+    @apply inline-block w-1.5 h-1.5 rounded-full bg-gold-500 mr-2;
+    animation: pulse-dot 2s infinite;
+  }
+}
+
+/* ── Keyframes ───────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fade-up 0.6s ease both; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* ── Chart.js canvas ─────────────────── */
+canvas { max-width: 100%; }
