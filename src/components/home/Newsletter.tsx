@@ -6,12 +6,29 @@ export function Newsletter() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const handleSubmit = async () => {
-    if (!email || !email.includes('@')) return
+    if (!email || !email.includes('@')) {
+      setStatus('error')
+      return
+    }
     setStatus('loading')
-    // TODO: wire up to your email API (Mailchimp, ConvertKit, Resend, etc.)
-    // const res = await fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) })
-    await new Promise((r) => setTimeout(r, 800)) // simulated delay
-    setStatus('success')
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      if (!res.ok) {
+        setStatus('error')
+        return
+      }
+
+      setStatus('success')
+      setEmail('')
+    } catch (err) {
+      console.error('newsletter signup error', err)
+      setStatus('error')
+    }
   }
 
   return (
@@ -30,6 +47,10 @@ export function Newsletter() {
         {status === 'success' ? (
           <div className="bg-teal-500/20 border border-teal-500/30 rounded-xl p-6 text-teal-300 text-sm">
             🎉 You&apos;re subscribed! Check your inbox for a confirmation.
+          </div>
+        ) : status === 'error' ? (
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-800 text-sm">
+            ⚠️ There was a problem subscribing. Please try again.
           </div>
         ) : (
           <>
