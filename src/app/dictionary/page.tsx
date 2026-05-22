@@ -4,8 +4,9 @@ export const metadata: Metadata = {
   description: 'Over 1,000 financial terms explained in plain English for India and US markets.',
   alternates: { canonical: '/dictionary' },
 }
-export default function DictionaryPage({ searchParams }: { searchParams: { q?: string } }) {
-  const query = searchParams.q ?? ''
+export default async function DictionaryPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
+  const { q } = await searchParams
+  const query = q ?? ''
   return (
     <div className="px-[5vw] py-16 max-w-4xl mx-auto">
       <p className="text-xs font-medium uppercase tracking-widest text-teal-400 mb-2">Finance Dictionary</p>
