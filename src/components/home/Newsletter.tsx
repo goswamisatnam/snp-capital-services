@@ -57,6 +57,28 @@ export function Newsletter() {
     }
   }
 
+  const handleModalCtaClick = async () => {
+    try {
+      await fetch('/api/analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: 'newsletter_modal_cta_click',
+          props: { cta: 'read_starter_guide', source: 'newsletter_modal' },
+        }),
+      })
+    } catch (e) {
+      console.warn('analytics CTA event failed', e)
+    }
+    setShowModal(false)
+    try {
+      window.open('/investing', '_blank')
+    } catch (e) {
+      // fallback navigation
+      window.location.href = '/investing'
+    }
+  }
+
   return (
     <section className="py-20 px-[5vw] bg-navy relative overflow-hidden" id="newsletter">
       <div className="absolute inset-0 pointer-events-none"
@@ -118,6 +140,7 @@ export function Newsletter() {
               <h3 className="text-navy font-semibold text-lg mb-2">You're subscribed 🎉</h3>
               <p className="text-gray-700 text-sm mb-4">Thanks for joining. We just sent a confirmation to your email — please check your inbox.</p>
               <div className="flex justify-end">
+                <button onClick={handleModalCtaClick} className="mr-2 px-4 py-2 bg-gold text-navy rounded-md font-medium">Read Starter Guide</button>
                 <button onClick={() => setShowModal(false)} className="px-4 py-2 bg-navy text-white rounded-md">Close</button>
               </div>
             </div>
