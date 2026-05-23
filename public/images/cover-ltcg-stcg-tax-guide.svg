@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="480" fill="#07203f" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="60" y="160" font-size="44" font-weight="700">LTCG & STCG Tax on Stocks</text>
+    <text x="60" y="210" font-size="22" opacity="0.95">Everything You Need to Know</text>
+    <rect x="60" y="260" width="220" height="8" rx="4" fill="#38bdf8" />
+  </g>
+</svg>

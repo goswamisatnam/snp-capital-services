@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0ea5a8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="480" fill="url(#g)" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="60" y="160" font-size="44" font-weight="700">SIP vs Lump Sum</text>
+    <text x="60" y="210" font-size="22" opacity="0.9">Which Strategy Wins in India's Market?</text>
+    <rect x="60" y="260" width="160" height="6" rx="3" fill="#fff" opacity="0.85" />
+  </g>
+</svg>

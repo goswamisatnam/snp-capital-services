@@ -237,7 +237,7 @@ export const FEATURED_ARTICLES: Article[] = [
     market: 'India',
     readTime: 8,
     publishedAt: '2025-05-01',
-    emoji: '📊',
+    coverImage: '/images/cover-sip-vs-lump-sum.svg',
     featured: true,
   },
   {
@@ -250,6 +250,7 @@ export const FEATURED_ARTICLES: Article[] = [
     market: 'Both',
     readTime: 12,
     publishedAt: '2025-04-15',
+    coverImage: '/images/cover-indians-invest-us-stocks.svg',
   },
   {
     id: '3',
@@ -261,6 +262,7 @@ export const FEATURED_ARTICLES: Article[] = [
     market: 'India',
     readTime: 9,
     publishedAt: '2025-03-20',
+    coverImage: '/images/cover-ltcg-stcg-tax-guide.svg',
   },
   {
     id: '4',
@@ -272,6 +274,7 @@ export const FEATURED_ARTICLES: Article[] = [
     market: 'Both',
     readTime: 15,
     publishedAt: '2025-03-05',
+    coverImage: '/images/cover-401k-vs-roth-ira-vs-nps.svg',
   },
   {
     id: '5',
@@ -283,6 +286,7 @@ export const FEATURED_ARTICLES: Article[] = [
     market: 'Both',
     readTime: 10,
     publishedAt: '2025-02-18',
+    coverImage: '/images/cover-bitcoin-vs-ethereum.svg',
   },
   {
     id: '6',
@@ -294,6 +298,7 @@ export const FEATURED_ARTICLES: Article[] = [
     market: 'India',
     readTime: 18,
     publishedAt: '2025-02-01',
+    coverImage: '/images/cover-options-greeks.svg',
   },
 ]
 

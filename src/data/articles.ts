@@ -39,6 +39,7 @@ export const FULL_ARTICLES: FullArticle[] = [
     publishedAt: '2025-05-01',
     author: 'S&P Capital Research',
     emoji: '📊',
+    coverImage: '/images/cover-sip-vs-lump-sum.svg',
     tags: ['SIP', 'Lump Sum', 'Mutual Funds', 'Nifty 50', 'Rupee Cost Averaging'],
     sections: [
       { type: 'p', content: 'Every investor eventually faces the same question: should I invest a large amount at once, or spread it out monthly through a SIP? The answer depends on market timing, your psychology, and how much capital you have available.' },
@@ -94,6 +95,7 @@ export const FULL_ARTICLES: FullArticle[] = [
     readTime: 12,
     publishedAt: '2025-04-15',
     author: 'S&P Capital Research',
+    coverImage: '/images/cover-indians-invest-us-stocks.svg',
     tags: ['US Stocks', 'LRS', 'NRI Investing', 'International Investing', 'FEMA'],
     sections: [
       { type: 'p', content: 'Investing in US stocks from India has never been easier. With platforms offering fractional shares and zero account opening fees, a retail investor in Mumbai can now own Apple, Microsoft, or an S&P 500 ETF from their phone.' },
@@ -158,6 +160,7 @@ export const FULL_ARTICLES: FullArticle[] = [
     readTime: 9,
     publishedAt: '2025-03-20',
     author: 'S&P Capital Research',
+    coverImage: '/images/cover-ltcg-stcg-tax-guide.svg',
     tags: ['LTCG', 'STCG', 'Capital Gains Tax', 'Budget 2024', 'Mutual Funds Tax', 'Equity Tax'],
     sections: [
       { type: 'p', content: 'Budget 2024 changed India\'s capital gains tax structure significantly. Understanding the new rates is critical for planning your investment redemptions and minimizing your tax outgo.' },
@@ -218,6 +221,7 @@ export const FULL_ARTICLES: FullArticle[] = [
     readTime: 15,
     publishedAt: '2025-03-05',
     author: 'S&P Capital Research',
+    coverImage: '/images/cover-401k-vs-roth-ira-vs-nps.svg',
     tags: ['401k', 'Roth IRA', 'NPS', 'NRI Retirement', 'DTAA', 'Retirement Planning'],
     sections: [
       { type: 'p', content: 'If you\'re an Indian working in the US — or planning to return to India — you face a unique retirement challenge: managing accounts in two different countries with two different tax systems. Understanding the 401(k), Roth IRA, and India\'s NPS is essential.' },
@@ -272,6 +276,7 @@ export const FULL_ARTICLES: FullArticle[] = [
     publishedAt: '2025-02-18',
     author: 'S&P Capital Research',
     emoji: '₿',
+    coverImage: '/images/cover-bitcoin-vs-ethereum.svg',
     tags: ['Bitcoin', 'Ethereum', 'Crypto', 'Blockchain', 'DeFi', 'Digital Assets'],
     sections: [
       { type: 'p', content: 'Bitcoin and Ethereum together represent over 60% of the total crypto market cap. But they serve fundamentally different purposes and have very different investment characteristics.' },
@@ -332,6 +337,7 @@ export const FULL_ARTICLES: FullArticle[] = [
     readTime: 18,
     publishedAt: '2025-02-01',
     author: 'S&P Capital Research',
+    coverImage: '/images/cover-options-greeks.svg',
     tags: ['Options', 'F&O', 'Delta', 'Theta', 'Vega', 'Gamma', 'Options Greeks', 'NSE'],
     sections: [
       { type: 'p', content: 'Options are priced based on several factors: the underlying price, strike price, time to expiry, volatility, and interest rates. The "Greeks" quantify the sensitivity of an option\'s price to each of these factors. Mastering them is the difference between systematic options trading and gambling.' },

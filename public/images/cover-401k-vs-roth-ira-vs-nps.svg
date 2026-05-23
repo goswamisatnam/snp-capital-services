@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="480" fill="#08111b" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="60" y="160" font-size="40" font-weight="700">401(k) vs Roth IRA vs NPS</text>
+    <text x="60" y="205" font-size="20" opacity="0.95">The Ultimate Retirement Comparison</text>
+    <rect x="60" y="250" width="180" height="6" rx="3" fill="#10b981" />
+  </g>
+</svg>

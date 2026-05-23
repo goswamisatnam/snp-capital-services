@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="480" fill="url(#g2)" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="60" y="160" font-size="44" font-weight="700">Bitcoin vs Ethereum</text>
+    <text x="60" y="210" font-size="22" opacity="0.95">Fundamental Differences Explained</text>
+    <circle cx="1040" cy="120" r="44" fill="#f59e0b" opacity="0.95" />
+  </g>
+</svg>

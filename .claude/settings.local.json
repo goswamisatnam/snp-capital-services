@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "PowerShell(\\(Get-Content 'c:\\\\Users\\\\satsingh\\\\Downloads\\\\snp-capital-services\\\\src\\\\data\\\\articles.ts'\\).Count)",
+      "PowerShell(\\(Get-Content 'c:\\\\Users\\\\satsingh\\\\Downloads\\\\snp-capital-services\\\\src\\\\data\\\\articles.ts' | Select-Object -Last 5\\) -join \"`n\")"
+    ]
+  }
+}
