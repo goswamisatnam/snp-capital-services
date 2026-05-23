@@ -2,37 +2,37 @@ import Link from 'next/link'
 import { SITE_CONFIG } from '@/lib/constants'
 
 const footerLinks = {
-  Investing: [
-    { label: 'Stock Markets', href: '/investing/stocks' },
-    { label: 'Mutual Funds', href: '/mutual-funds' },
-    { label: 'ETFs', href: '/etfs' },
-    { label: 'Cryptocurrency', href: '/crypto' },
-    { label: 'Bonds', href: '/bonds' },
-    { label: 'Real Estate', href: '/real-estate' },
-  ],
   'Personal Finance': [
-    { label: 'Budgeting', href: '/personal-finance/budgeting' },
-    { label: 'Insurance', href: '/insurance' },
-    { label: 'Tax Planning', href: '/taxes' },
-    { label: 'Retirement', href: '/retirement' },
+    { label: 'Budgeting',      href: '/personal-finance/budgeting'      },
+    { label: 'Insurance',      href: '/personal-finance/insurance'      },
+    { label: 'Tax Planning',   href: '/personal-finance/tax-planning'   },
+    { label: 'Retirement',     href: '/personal-finance/retirement'     },
     { label: 'Emergency Fund', href: '/personal-finance/emergency-fund' },
-    { label: 'Credit Scores', href: '/personal-finance/credit' },
+    { label: 'Credit Scores',  href: '/personal-finance/credit-scores'  },
+  ],
+  Investing: [
+    { label: 'Stock Markets',  href: '/investing/stock-markets'  },
+    { label: 'Mutual Funds',   href: '/investing/mutual-funds'   },
+    { label: 'ETFs',           href: '/investing/etfs'           },
+    { label: 'Cryptocurrency', href: '/investing/cryptocurrency'  },
+    { label: 'Bonds',          href: '/investing/bonds'          },
+    { label: 'Real Estate',    href: '/investing/real-estate'    },
   ],
   'India Markets': [
-    { label: 'NSE & BSE', href: '/markets/india/exchanges' },
-    { label: 'SEBI Rules', href: '/markets/india/sebi' },
-    { label: 'Demat Account', href: '/markets/india/demat' },
-    { label: 'ELSS / PPF / NPS', href: '/markets/india/tax-saving' },
-    { label: 'Indian F&O', href: '/options' },
-    { label: 'NRI Investing', href: '/markets/india/nri' },
+    { label: 'NSE & BSE',        href: '/markets/india/nse-bse'       },
+    { label: 'SEBI Rules',       href: '/markets/india/sebi-rules'    },
+    { label: 'Demat Account',    href: '/markets/india/demat-account' },
+    { label: 'ELSS / PPF / NPS', href: '/markets/india/elss-ppf-nps' },
+    { label: 'Indian F&O',       href: '/markets/india/indian-fno'    },
+    { label: 'NRI Investing',    href: '/markets/india/nri-investing'  },
   ],
   'US Markets': [
-    { label: 'NYSE & NASDAQ', href: '/markets/us/exchanges' },
-    { label: '401(k) Guide', href: '/retirement/401k' },
-    { label: 'Roth IRA', href: '/retirement/roth-ira' },
-    { label: 'S&P 500 Basics', href: '/markets/us/sp500' },
-    { label: 'US Tax for NRI', href: '/markets/us/nri-tax' },
-    { label: 'DTAA Benefits', href: '/markets/us/dtaa' },
+    { label: 'NYSE & NASDAQ',  href: '/markets/us/nyse-nasdaq'    },
+    { label: '401(k) Guide',   href: '/markets/us/401k-guide'     },
+    { label: 'Roth IRA',       href: '/markets/us/roth-ira'       },
+    { label: 'S&P 500 Basics', href: '/markets/us/sp500-basics'   },
+    { label: 'US Tax for NRI', href: '/markets/us/us-tax-for-nri' },
+    { label: 'DTAA Benefits',  href: '/markets/us/dtaa-benefits'  },
   ],
 }
 
@@ -50,10 +50,16 @@ export function Footer() {
               </div>
               <span className="font-display text-white/70 text-sm">Capital Services</span>
             </Link>
-            <p className="text-xs text-white/35 leading-relaxed">
+            <p className="text-xs text-white/35 leading-relaxed mb-4">
               Your complete financial literacy hub for India and US markets.
               Unbiased, educational, always free at the core.
             </p>
+            <div className="flex flex-col gap-1.5">
+              <Link href="/trading" className="text-xs text-white/35 hover:text-gold-300 transition-colors">⚡ Trading</Link>
+              <Link href="/dictionary" className="text-xs text-white/35 hover:text-gold-300 transition-colors">📖 Dictionary</Link>
+              <Link href="/calculators" className="text-xs text-white/35 hover:text-gold-300 transition-colors">🧮 Calculators</Link>
+              <Link href="/blog" className="text-xs text-white/35 hover:text-gold-300 transition-colors">✍️ Blog</Link>
+            </div>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -82,11 +88,19 @@ export function Footer() {
           <p className="text-xs text-white/25">
             © {new Date().getFullYear()} {SITE_CONFIG.name} LLC · snpcapitalservices.com
           </p>
-          <div className="flex gap-4">
-            {['Privacy Policy', 'Terms of Use', 'Contact', 'Sitemap'].map((l) => (
-              <Link key={l} href={`/${l.toLowerCase().replace(/ /g, '-')}`}
-                className="text-xs text-white/25 hover:text-white/50 transition-colors">
-                {l}
+          <div className="flex gap-4 flex-wrap">
+            {[
+              { label: 'Privacy Policy', href: '/privacy-policy' },
+              { label: 'Terms of Use',   href: '/terms-of-use'   },
+              { label: 'Contact',        href: '/about'          },
+              { label: 'Sitemap',        href: '/sitemap.xml'    },
+            ].map((l) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="text-xs text-white/25 hover:text-white/50 transition-colors"
+              >
+                {l.label}
               </Link>
             ))}
           </div>

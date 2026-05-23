@@ -9,6 +9,26 @@ export interface NavCategory {
   href: string
 }
 
+export interface NavSubItem {
+  label: string
+  href: string
+  icon?: string
+}
+
+export interface NavGroup {
+  label: string
+  href: string
+  items: NavSubItem[]
+}
+
+export interface NavItem {
+  label: string
+  href: string
+  icon?: string
+  items?: NavSubItem[]
+  groups?: NavGroup[]
+}
+
 // ── Market Ticker ────────────────────────
 export interface TickerItem {
   name: string

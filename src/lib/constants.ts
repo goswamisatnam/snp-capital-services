@@ -1,5 +1,5 @@
 import type {
-  NavCategory, TickerItem, LearningPath,
+  NavCategory, NavItem, TickerItem, LearningPath,
   TopicCategory, Article, MarketInfo
 } from '@/types'
 
@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
   twitter: '@snpcapital',
 }
 
-// ── Navigation Categories ─────────────────
+// ── Navigation Categories (legacy flat list) ──
 export const NAV_CATEGORIES: NavCategory[] = [
   { label: 'Investing',       icon: '📚', href: '/investing' },
   { label: 'Personal Finance',icon: '💰', href: '/personal-finance' },
@@ -26,6 +26,83 @@ export const NAV_CATEGORIES: NavCategory[] = [
   { label: 'Taxes',           icon: '💼', href: '/taxes' },
   { label: 'Dictionary',      icon: '📖', href: '/dictionary' },
   { label: 'Calculators',     icon: '🧮', href: '/calculators' },
+]
+
+// ── Navigation Items with Dropdowns ──────────
+export const NAV_ITEMS: NavItem[] = [
+  {
+    label: 'Personal Finance',
+    href: '/personal-finance',
+    icon: '💰',
+    items: [
+      { label: 'Budgeting',      href: '/personal-finance/budgeting',      icon: '📊' },
+      { label: 'Insurance',      href: '/personal-finance/insurance',      icon: '🛡️' },
+      { label: 'Tax Planning',   href: '/personal-finance/tax-planning',   icon: '🧾' },
+      { label: 'Retirement',     href: '/personal-finance/retirement',     icon: '🏖️' },
+      { label: 'Emergency Fund', href: '/personal-finance/emergency-fund', icon: '🆘' },
+      { label: 'Credit Scores',  href: '/personal-finance/credit-scores',  icon: '⭐' },
+    ],
+  },
+  {
+    label: 'Investing',
+    href: '/investing',
+    icon: '📈',
+    items: [
+      { label: 'Stock Markets',  href: '/investing/stock-markets',  icon: '📊' },
+      { label: 'Mutual Funds',   href: '/investing/mutual-funds',   icon: '🏦' },
+      { label: 'ETFs',           href: '/investing/etfs',           icon: '📦' },
+      { label: 'Cryptocurrency', href: '/investing/cryptocurrency',  icon: '₿'  },
+      { label: 'Bonds',          href: '/investing/bonds',          icon: '📜' },
+      { label: 'Real Estate',    href: '/investing/real-estate',    icon: '🏠' },
+    ],
+  },
+  {
+    label: 'Trading',
+    href: '/trading',
+    icon: '⚡',
+    items: [
+      { label: 'Introduction to Trading', href: '/trading/introduction',        icon: '📖' },
+      { label: 'How to Start Trading',    href: '/trading/how-to-start',        icon: '🚀' },
+      { label: 'Learn Trading',           href: '/trading/learn',               icon: '🎓' },
+      { label: 'Trading Strategies',      href: '/trading/strategies',          icon: '🎯' },
+      { label: 'Top 10 Brokers',          href: '/trading/top-10-brokers',      icon: '🏆' },
+      { label: 'Derivatives',             href: '/trading/derivatives',         icon: '📉' },
+      { label: 'Futures & Options',       href: '/trading/futures-and-options', icon: '⚙️' },
+    ],
+  },
+  {
+    label: 'Markets',
+    href: '/markets',
+    icon: '🌐',
+    groups: [
+      {
+        label: '🇮🇳 India Markets',
+        href: '/markets/india',
+        items: [
+          { label: 'NSE & BSE',      href: '/markets/india/nse-bse'      },
+          { label: 'SEBI Rules',     href: '/markets/india/sebi-rules'   },
+          { label: 'Demat Account',  href: '/markets/india/demat-account'},
+          { label: 'ELSS / PPF / NPS', href: '/markets/india/elss-ppf-nps' },
+          { label: 'Indian F&O',     href: '/markets/india/indian-fno'   },
+          { label: 'NRI Investing',  href: '/markets/india/nri-investing' },
+        ],
+      },
+      {
+        label: '🇺🇸 US Markets',
+        href: '/markets/us',
+        items: [
+          { label: 'NYSE & NASDAQ',  href: '/markets/us/nyse-nasdaq'     },
+          { label: '401(k) Guide',   href: '/markets/us/401k-guide'      },
+          { label: 'Roth IRA',       href: '/markets/us/roth-ira'        },
+          { label: 'S&P 500 Basics', href: '/markets/us/sp500-basics'    },
+          { label: 'US Tax for NRI', href: '/markets/us/us-tax-for-nri'  },
+          { label: 'DTAA Benefits',  href: '/markets/us/dtaa-benefits'   },
+        ],
+      },
+    ],
+  },
+  { label: 'Dictionary',   href: '/dictionary',   icon: '📖' },
+  { label: 'Calculators',  href: '/calculators',  icon: '🧮' },
 ]
 
 // ── Market Ticker ────────────────────────

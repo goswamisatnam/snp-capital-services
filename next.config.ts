@@ -32,7 +32,11 @@ const nextConfig: NextConfig = {
   // Redirects (useful for SEO)
   async redirects() {
     return [
-      { source: '/tools', destination: '/calculators', permanent: true },
+      { source: '/tools',        destination: '/calculators',             permanent: true },
+      { source: '/crypto',       destination: '/investing/cryptocurrency', permanent: true },
+      { source: '/mutual-funds', destination: '/investing/mutual-funds',  permanent: true },
+      { source: '/retirement',   destination: '/personal-finance/retirement', permanent: true },
+      { source: '/taxes',        destination: '/personal-finance/tax-planning', permanent: true },
     ]
   },
 }
