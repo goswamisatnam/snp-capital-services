@@ -1,16 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import dynamic from 'next/dynamic'
+import { CalculatorClient } from '@/components/calculators/CalculatorClient'
 import { AIFinanceAssistant } from '@/components/ai/AIFinanceAssistant'
-
-function Skeleton() {
-  return <div className="h-96 bg-navy-100 animate-pulse rounded-brand" />
-}
-
-const CalculatorLayout = dynamic(
-  () => import('@/components/calculators/CalculatorLayout').then((m) => m.CalculatorLayout),
-  { ssr: false, loading: () => <Skeleton /> },
-)
 
 export const metadata: Metadata = {
   title: 'Finance Calculators – SIP, CAGR, EMI, Retirement, LTCG, 401k',
@@ -23,7 +14,7 @@ export default function CalculatorsPage() {
   return (
     <>
       <Suspense fallback={<div className="flex items-center justify-center h-64 text-gray-400 text-sm">Loading calculators…</div>}>
-        <CalculatorLayout />
+        <CalculatorClient />
       </Suspense>
 
       {/* AI Finance Assistant section */}
