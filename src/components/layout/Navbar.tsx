@@ -90,22 +90,28 @@ export function Navbar() {
                 onMouseLeave={() => setOpenDropdown(null)}
               >
               {hasChildren ? (
-                <button
-                  type="button"
-                  onClick={() => setOpenDropdown(isOpen ? null : item.label)}
-                  className={`flex items-center gap-1 px-3.5 py-2.5 text-sm whitespace-nowrap border-b-2 transition-colors ${
-                    isOpen
-                      ? 'text-navy border-navy font-medium'
-                      : 'text-gray-500 border-transparent hover:text-navy hover:border-gray-300'
-                  }`}
-                >
-                  {item.icon && <span className="text-sm">{item.icon}</span>}
-                  {item.label}
-                  <ChevronDown
-                    size={12}
-                    className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpenDropdown(null)}
+                    className={`flex items-center gap-1 px-3.5 py-2.5 text-sm whitespace-nowrap border-b-2 transition-colors ${
+                      isOpen
+                        ? 'text-navy border-navy font-medium'
+                        : 'text-gray-500 border-transparent hover:text-navy hover:border-gray-300'
+                    }`}
+                  >
+                    {item.icon && <span className="text-sm">{item.icon}</span>}
+                    {item.label}
+                  </Link>
+                  <button
+                    type="button"
+                    aria-label={`Toggle ${item.label} menu`}
+                    onClick={() => setOpenDropdown(isOpen ? null : item.label)}
+                    className="px-2 py-2 text-gray-400 hover:text-navy"
+                  >
+                    <ChevronDown size={12} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
               ) : (
                 <Link
                   href={item.href}
