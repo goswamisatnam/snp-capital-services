@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.6",
     "@vercel/analytics": "^2.0.1",
     "chart.js": "^4.4.7",
     "clsx": "^2.1.1",

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-export const metadata: Metadata = { title: 'About S&P Capital Services' }
+export const metadata: Metadata = { title: 'About S&P Capital Services', twitter: { card: 'summary_large_image' } }
 export default function AboutPage() {
   return (
     <div className="px-[5vw] py-20 max-w-2xl mx-auto">

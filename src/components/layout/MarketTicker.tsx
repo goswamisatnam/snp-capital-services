@@ -40,7 +40,7 @@ export function MarketTicker() {
     }
   }, [])
 
-  const items = quotes ?? TICKER_ITEMS
+  const items = quotes?.length ? quotes : TICKER_ITEMS
 
   // Duplicate for seamless scroll
   const display = [...items, ...items]

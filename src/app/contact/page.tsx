@@ -5,6 +5,7 @@ import ContactForm from '@/components/contact/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact',
   description: `Contact ${SITE_CONFIG.name}`,
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function ContactPage() {

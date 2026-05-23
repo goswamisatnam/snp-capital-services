@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'US Stock Markets Guide | NYSE, NASDAQ, S&P 500, Investment Strategies',
   description: 'Complete guide to US stock markets: NYSE, NASDAQ, S&P 500, retirement accounts (401k, Roth IRA), investment strategies, and tax-efficient investing for Indian investors.',
+  twitter: { card: 'summary_large_image' },
 }
 
 const USMarketGuide = () => {

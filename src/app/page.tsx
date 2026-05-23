@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: `${SITE_CONFIG.name} – Your Complete Financial Literacy Guide`,
   description: SITE_CONFIG.description,
   alternates: { canonical: '/' },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function HomePage() {

@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import { CalculatorLayout } from '@/components/calculators/CalculatorLayout'
+import dynamic from 'next/dynamic'
 import { AIFinanceAssistant } from '@/components/ai/AIFinanceAssistant'
+
+function Skeleton() {
+  return <div className="h-96 bg-navy-100 animate-pulse rounded-brand" />
+}
+
+const CalculatorLayout = dynamic(
+  () => import('@/components/calculators/CalculatorLayout').then((m) => m.CalculatorLayout),
+  { ssr: false, loading: () => <Skeleton /> },
+)
 
 export const metadata: Metadata = {
   title: 'Finance Calculators – SIP, CAGR, EMI, Retirement, LTCG, 401k',
   description: 'Free finance calculators: SIP, CAGR, Compound Interest, EMI, Retirement Planner, LTCG Tax, 401k — for India & US investors.',
   alternates: { canonical: '/calculators' },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function CalculatorsPage() {

@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FULL_ARTICLES } from '@/data/articles'
 import type { ArticleSection } from '@/data/articles'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { SITE_CONFIG } from '@/lib/constants'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -27,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: article.publishedAt,
     },
+    twitter: { card: 'summary_large_image' },
   }
 }
 
@@ -101,8 +104,25 @@ export default async function BlogArticlePage({ params }: Props) {
     Global: 'bg-gray-100 text-gray-700',
   }
 
+  const articleSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    author: { '@type': 'Person', name: article.author },
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt ?? article.publishedAt,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo.png` },
+    },
+    ...(article.coverImage ? { image: `${SITE_CONFIG.url}${article.coverImage}` } : {}),
+  }
+
   return (
     <div className="px-[5vw] py-12 max-w-3xl mx-auto">
+      <JsonLd schema={articleSchema} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
         <Link href="/" className="hover:text-navy transition-colors">Home</Link>

@@ -1,9 +1,23 @@
 import type { Metadata, Viewport } from 'next'
+import { Playfair_Display, DM_Sans } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { MarketTicker } from '@/components/layout/MarketTicker'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/constants'
+import { GoogleAnalytics } from '@next/third-parties/google'
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -44,6 +58,7 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
+  verification: { google: 'YOUR_GSC_VERIFICATION_CODE' }, // get from Google Search Console → Settings → Ownership verification → HTML tag method
 }
 
 export const viewport: Viewport = {
@@ -52,10 +67,40 @@ export const viewport: Viewport = {
   themeColor: '#0C1B33',
 }
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  description: SITE_CONFIG.description,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${SITE_CONFIG.url}/dictionary?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  logo: `${SITE_CONFIG.url}/logo.png`,
+  description: SITE_CONFIG.description,
+  sameAs: [
+    `https://twitter.com/${SITE_CONFIG.twitter.replace('@', '')}`,
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${playfairDisplay.variable} ${dmSans.variable}`}>
       <body className="flex flex-col min-h-screen">
+        <JsonLd schema={websiteSchema} />
+        <JsonLd schema={organizationSchema} />
         {/* Top info banner */}
         <div className="bg-navy text-center py-2 px-4 text-xs text-white/50 tracking-wide">
           India &amp; US Markets · No ads, no stock tips · Pure financial education ·{' '}
@@ -72,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <Footer />
+        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </body>
     </html>
   )

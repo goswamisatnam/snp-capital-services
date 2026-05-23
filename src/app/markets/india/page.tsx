@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'India Stock Markets Guide | NSE, BSE, Investment Strategies',
   description: 'Comprehensive guide to Indian stock markets: NSE, BSE, market indices, sectors, investment vehicles (SIP, NPS, PPF, ELSS), and strategies for building wealth.',
+  twitter: { card: 'summary_large_image' },
 }
 
 const IndiaMarketGuide = () => {
