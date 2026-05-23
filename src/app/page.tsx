@@ -9,6 +9,7 @@ import { ToolsPreview } from '@/components/home/ToolsPreview'
 import { ConceptsStrip } from '@/components/home/ConceptsStrip'
 import { Newsletter } from '@/components/home/Newsletter'
 import { SITE_CONFIG } from '@/lib/constants'
+import { FloatingChat } from '@/components/ai/FloatingChat'
 
 export const metadata: Metadata = {
   title: `${SITE_CONFIG.name} – Your Complete Financial Literacy Guide`,
@@ -28,6 +29,7 @@ export default function HomePage() {
       <ToolsPreview />
       <ConceptsStrip />
       <Newsletter />
+      <FloatingChat />
     </>
   )
 }
