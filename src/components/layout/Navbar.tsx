@@ -43,7 +43,7 @@ export function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="sticky top-0 z-50 bg-white/[0.97] backdrop-blur-md border-b border-cream-300 shadow-nav"
+      className="sticky top-0 z-[100] bg-white/[0.97] backdrop-blur-md border-b border-cream-300 shadow-nav"
     >
       {/* ── Row 1: Logo + Search + CTAs ─────────────── */}
       <div className="flex items-center gap-3 px-[5vw] h-14">
@@ -96,7 +96,7 @@ export function Navbar() {
       </div>
 
       {/* ── Row 2: Desktop nav ───────────────────────── */}
-      <div className="hidden md:flex items-center px-[5vw] border-t border-cream-300 overflow-x-auto scrollbar-hide">
+      <div className="hidden md:flex items-center px-[5vw] border-t border-cream-300">
         {NAV_ITEMS.map((item) => {
           const hasChildren = !!(item.items?.length || item.groups?.length)
           const isOpen = openDropdown === item.label
@@ -143,7 +143,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -6, scale: 0.98 }}
                     transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="absolute top-full left-0 z-50 mt-0.5"
+                    className="absolute top-full left-0 z-[200] mt-0.5"
                     onMouseEnter={cancelClose}
                     onMouseLeave={scheduleClose}
                   >
