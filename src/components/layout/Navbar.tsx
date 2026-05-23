@@ -10,7 +10,6 @@ export function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
   const navRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     function handleOutside(e: MouseEvent) {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -20,7 +19,7 @@ export function Navbar() {
     document.addEventListener('mousedown', handleOutside)
     return () => document.removeEventListener('mousedown', handleOutside)
   }, [])
-
+  const closeTimer = useRef<number | null>(null)
   return (
     <nav
       ref={navRef}

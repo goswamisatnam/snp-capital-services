@@ -13,14 +13,14 @@ export async function GET() {
     if (!key) {
       // Try Yahoo Finance public endpoint (no API key) for basic quotes
       try {
-        const yahooSymbols = ['^NSEI', '^BSESN', '^GSPC', 'BTC-USD']
+        const yahooSymbols = ['^NSEI','^BSESN','^GSPC','BTC-USD','TSLA','AAPL','MSFT','RELIANCE.NS']
         const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(yahooSymbols.join(','))}`
         const res = await fetch(url)
         const json = await res.json()
         const results = (json?.quoteResponse?.result || []).map((r: any) => ({
           symbol: r.symbol,
-          price: r.regularMarketPrice ?? r.regularMarketPreviousClose ?? '-',
-          change: (typeof r.regularMarketChangePercent === 'number') ? `${r.regularMarketChangePercent.toFixed(2)}%` : (r.regularMarketChange ?? '-'),
+          price: (r.regularMarketPrice != null) ? String(r.regularMarketPrice) : (r.regularMarketPreviousClose != null ? String(r.regularMarketPreviousClose) : '-'),
+          change: (typeof r.regularMarketChangePercent === 'number') ? `${r.regularMarketChangePercent.toFixed(2)}%` : (r.regularMarketChange != null ? String(r.regularMarketChange) : '-'),
           isUp: (r.regularMarketChange ?? 0) >= 0,
         }))
 
