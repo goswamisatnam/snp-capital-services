@@ -77,6 +77,7 @@ export interface Article {
   readTime: number      // in minutes
   publishedAt: string   // ISO date string
   emoji?: string
+  coverImage?: string
   featured?: boolean
 }
 

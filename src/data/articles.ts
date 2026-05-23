@@ -19,6 +19,7 @@ export interface FullArticle {
   publishedAt: string
   updatedAt?: string
   emoji?: string
+  coverImage?: string
   author: string
   tags: string[]
   sections: ArticleSection[]

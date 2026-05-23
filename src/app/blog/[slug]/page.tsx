@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FULL_ARTICLES } from '@/data/articles'
 import type { ArticleSection } from '@/data/articles'
 
@@ -119,8 +120,13 @@ export default async function BlogArticlePage({ params }: Props) {
           <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-cream-200 text-gray-600">{article.category}</span>
         </div>
 
-        {article.emoji && <div className="text-6xl mb-6">{article.emoji}</div>}
-
+        {article.coverImage ? (
+          <div className="mb-6 rounded-xl overflow-hidden">
+            <Image src={article.coverImage} alt={article.title} width={1200} height={480} className="object-cover w-full h-60 rounded-md" />
+          </div>
+        ) : (
+          article.emoji && <div className="text-6xl mb-6">{article.emoji}</div>
+        )}
         <h1 className="font-display text-navy text-3xl sm:text-4xl font-bold leading-tight mb-4">
           {article.title}
         </h1>
