@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Top info banner */}
         <div className="bg-navy text-center py-2 px-4 text-xs text-white/50 tracking-wide">
           India &amp; US Markets · No ads, no stock tips · Pure financial education ·{' '}
-          <a href="/newsletter" className="text-gold-300 hover:text-gold-200 transition-colors">
+          <a href="/#newsletter" className="text-gold-300 hover:text-gold-200 transition-colors">
             Subscribe free →
           </a>
         </div>

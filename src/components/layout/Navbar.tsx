@@ -60,7 +60,7 @@ export function Navbar() {
             Calculators
           </Link>
           <Link
-            href="#newsletter"
+            href="/#newsletter"
             className="text-xs bg-navy text-white rounded-md px-3 py-1.5 hover:bg-opacity-90 transition-colors"
           >
             Subscribe
@@ -289,7 +289,7 @@ export function Navbar() {
               Calculators
             </Link>
             <Link
-              href="#newsletter"
+              href="/#newsletter"
               onClick={() => setMobileOpen(false)}
               className="flex-1 text-center text-sm bg-navy text-white rounded-md py-2"
             >

@@ -11,17 +11,35 @@ export async function GET() {
 
     const key = process.env.ALPHA_VANTAGE_API_KEY
     if (!key) {
-      // Return fallback static data
-      const fallback = {
-        meta: { source: 'fallback' },
-        quotes: [
-          { symbol: 'NIFTY 50', price: '24,682', change: '+0.42%', isUp: true },
-          { symbol: 'S&P 500', price: '5,897', change: '+0.61%', isUp: true },
-          { symbol: 'BTC/USD', price: '$67,420', change: '-1.2%', isUp: false },
-        ],
+      // Try Yahoo Finance public endpoint (no API key) for basic quotes
+      try {
+        const yahooSymbols = ['^NSEI', '^BSESN', '^GSPC', 'BTC-USD']
+        const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(yahooSymbols.join(','))}`
+        const res = await fetch(url)
+        const json = await res.json()
+        const results = (json?.quoteResponse?.result || []).map((r: any) => ({
+          symbol: r.symbol,
+          price: r.regularMarketPrice ?? r.regularMarketPreviousClose ?? '-',
+          change: (typeof r.regularMarketChangePercent === 'number') ? `${r.regularMarketChangePercent.toFixed(2)}%` : (r.regularMarketChange ?? '-'),
+          isUp: (r.regularMarketChange ?? 0) >= 0,
+        }))
+
+        const payload = { meta: { source: 'yahoo' }, quotes: results }
+        cache = { ts: now, data: payload }
+        return NextResponse.json(payload)
+      } catch (e) {
+        // fallback to static data if Yahoo fails
+        const fallback = {
+          meta: { source: 'fallback' },
+          quotes: [
+            { symbol: 'NIFTY 50', price: '24,682', change: '+0.42%', isUp: true },
+            { symbol: 'S&P 500', price: '5,897', change: '+0.61%', isUp: true },
+            { symbol: 'BTC/USD', price: '$67,420', change: '-1.2%', isUp: false },
+          ],
+        }
+        cache = { ts: now, data: fallback }
+        return NextResponse.json(fallback)
       }
-      cache = { ts: now, data: fallback }
-      return NextResponse.json(fallback)
     }
 
     // Example: Fetch global quotes for a few symbols using Alpha Vantage "GLOBAL_QUOTE"
