@@ -3,14 +3,14 @@
 import { useState, useRef, useEffect } from 'react'
 
 const SUGGESTED_QUESTIONS = [
-  { icon: '📈', text: 'What is SIP and how does it work?', tag: 'India' },
-  { icon: '🇺🇸', text: 'How do I invest in US stocks from India?', tag: 'NRI' },
-  { icon: '💰', text: 'Explain 401(k) vs Roth IRA difference', tag: 'US' },
-  { icon: '📊', text: 'What is P/E ratio and how to use it?', tag: 'Basics' },
-  { icon: '🧾', text: 'How is LTCG tax calculated in India?', tag: 'Tax' },
-  { icon: '₿', text: 'Is crypto taxed in India? How?', tag: 'Crypto' },
-  { icon: '🏦', text: 'Mutual funds vs ETFs — which is better?', tag: 'Investing' },
-  { icon: '🔄', text: 'What is DTAA between India and US?', tag: 'NRI' },
+  { icon: '📈', text: 'What is SIP and how does it work?',         short: 'What is SIP?',           tag: 'India'    },
+  { icon: '🇺🇸', text: 'How do I invest in US stocks from India?', short: 'Invest in US stocks',    tag: 'NRI'      },
+  { icon: '💰', text: 'Explain 401(k) vs Roth IRA difference',     short: '401k vs Roth IRA',       tag: 'US'       },
+  { icon: '📊', text: 'What is P/E ratio and how to use it?',      short: 'P/E ratio explained',    tag: 'Basics'   },
+  { icon: '🧾', text: 'How is LTCG tax calculated in India?',      short: 'LTCG tax India',         tag: 'Tax'      },
+  { icon: '₿',  text: 'Is crypto taxed in India? How?',           short: 'Crypto tax India',       tag: 'Crypto'   },
+  { icon: '🏦', text: 'Mutual funds vs ETFs — which is better?',  short: 'Mutual funds vs ETFs',   tag: 'Investing'},
+  { icon: '🔄', text: 'What is DTAA between India and US?',        short: 'DTAA India-US',          tag: 'NRI'      },
 ]
 
 const TAG_COLORS: Record<string, { bg: string; text: string }> = {
@@ -29,18 +29,15 @@ function TypingDots() {
   return (
     <div style={{ display: 'flex', gap: 4, alignItems: 'center', padding: '4px 0' }}>
       {[0, 1, 2].map((i) => (
-        <div
-          key={i}
-          style={{
-            width: 7, height: 7, borderRadius: '50%', background: '#C9A84C',
-            animation: `snp-bounce 1.2s ease-in-out ${i * 0.2}s infinite`,
-          }}
-        />
+        <div key={i} style={{
+          width: 6, height: 6, borderRadius: '50%', background: '#C9A84C',
+          animation: `snp-bounce 1.2s ease-in-out ${i * 0.2}s infinite`,
+        }} />
       ))}
       <style>{`
-        @keyframes snp-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
-        @keyframes snp-fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-        .snp-msg-in{animation:snp-fadeIn 0.3s ease both}
+        @keyframes snp-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+        @keyframes snp-fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+        .snp-msg{animation:snp-fadeIn 0.28s ease both}
       `}</style>
     </div>
   )
@@ -49,28 +46,26 @@ function TypingDots() {
 function ChatMessage({ msg }: { msg: Message }) {
   const isUser = msg.role === 'user'
   return (
-    <div
-      className="snp-msg-in"
-      style={{ display: 'flex', flexDirection: isUser ? 'row-reverse' : 'row', gap: 10, marginBottom: 16, alignItems: 'flex-start' }}
-    >
+    <div className="snp-msg" style={{
+      display: 'flex', flexDirection: isUser ? 'row-reverse' : 'row',
+      gap: 8, marginBottom: 14, alignItems: 'flex-start',
+    }}>
       <div style={{
-        width: 32, height: 32, borderRadius: '50%', flexShrink: 0,
+        width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: 13, fontWeight: 600,
+        fontSize: 11, fontWeight: 700,
         background: isUser ? '#0C1B33' : '#C9A84C',
         color: isUser ? '#E8C97A' : '#0C1B33',
       }}>
         {isUser ? 'U' : 'AI'}
       </div>
       <div style={{
-        maxWidth: '76%',
+        maxWidth: '78%',
         background: isUser ? '#0C1B33' : '#ffffff',
         border: isUser ? 'none' : '1px solid #e8e2d5',
-        borderRadius: isUser ? '16px 4px 16px 16px' : '4px 16px 16px 16px',
-        padding: '10px 14px',
-        fontSize: 13, lineHeight: 1.65,
-        color: isUser ? '#F8F3EC' : '#0C1B33',
-        whiteSpace: 'pre-wrap',
+        borderRadius: isUser ? '14px 3px 14px 14px' : '3px 14px 14px 14px',
+        padding: '9px 13px', fontSize: 12.5, lineHeight: 1.65,
+        color: isUser ? '#F8F3EC' : '#0C1B33', whiteSpace: 'pre-wrap',
       }}>
         {msg.content}
       </div>
@@ -79,16 +74,14 @@ function ChatMessage({ msg }: { msg: Message }) {
 }
 
 interface Props {
-  compact?: boolean  // true = shorter height (for modal), false = full height (for inline section)
+  compact?: boolean
 }
 
 export function AIFinanceAssistant({ compact = false }: Props) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: 'assistant',
-      content: "Hi! I'm FinanceGPT, your AI financial educator for India & US markets 🇮🇳🇺🇸\n\nAsk me anything about stocks, mutual funds, SIP, 401(k), LTCG tax, crypto, NRI investing, or any financial concept. I'm here to make finance simple for you!",
-    },
-  ])
+  const [messages, setMessages] = useState<Message[]>([{
+    role: 'assistant',
+    content: "Hi! I'm FinanceGPT 🇮🇳🇺🇸\n\nAsk me anything about stocks, mutual funds, SIP, 401(k), LTCG tax, crypto, or NRI investing. I'm here to make finance simple!",
+  }])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -116,17 +109,11 @@ export function AIFinanceAssistant({ compact = false }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: nextMessages }),
       })
-
       const data = await res.json()
-
-      if (!res.ok) {
-        throw new Error(data?.error || `Request failed (${res.status})`)
-      }
-
+      if (!res.ok) throw new Error(data?.error || `Error ${res.status}`)
       setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }])
     } catch (e) {
-      const msg = e instanceof Error ? e.message : 'Something went wrong. Please try again.'
-      setError(msg)
+      setError(e instanceof Error ? e.message : 'Something went wrong.')
       setMessages((prev) => prev.slice(0, -1))
     } finally {
       setLoading(false)
@@ -135,55 +122,104 @@ export function AIFinanceAssistant({ compact = false }: Props) {
   }
 
   const handleKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      send()
-    }
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() }
   }
 
-  const height = compact ? 520 : 680
+  const showSuggestions = messages.length <= 1
 
   return (
     <div style={{
       display: 'flex', flexDirection: 'column',
-      height, maxHeight: height,
+      height: compact ? '100%' : 680,
+      maxHeight: compact ? '460px' : 680,
       fontFamily: 'var(--font-sans, system-ui, sans-serif)',
       background: '#f8f5ef',
       borderRadius: compact ? 0 : 16,
       overflow: 'hidden',
     }}>
+
       {/* Header */}
-      <div style={{ background: '#0C1B33', padding: '14px 20px', display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+      <div style={{
+        background: 'linear-gradient(135deg, #0a1628 0%, #0C1B33 100%)',
+        padding: compact ? '11px 16px' : '14px 20px',
+        display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0,
+        borderBottom: '1px solid rgba(201,168,76,0.2)',
+      }}>
         <div style={{
-          width: 36, height: 36, borderRadius: 8, background: '#C9A84C',
+          width: compact ? 30 : 34, height: compact ? 30 : 34, borderRadius: 8,
+          background: 'linear-gradient(135deg, #C9A84C, #e8c660)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontWeight: 700, fontSize: 12, color: '#0C1B33',
+          fontWeight: 800, fontSize: 11, color: '#0C1B33',
+          boxShadow: '0 2px 6px rgba(201,168,76,0.4)',
+          letterSpacing: '0.03em',
         }}>
-          AI
+          GPT
         </div>
         <div>
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#F8F3EC' }}>FinanceGPT</div>
-          <div style={{ fontSize: 11, color: '#C9A84C', display: 'flex', alignItems: 'center', gap: 5 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22C55E', display: 'inline-block' }} />
-            India &amp; US Markets Expert · Always available
+          <div style={{ fontSize: compact ? 13 : 14, fontWeight: 600, color: '#F8F3EC', letterSpacing: '0.01em' }}>
+            FinanceGPT
+          </div>
+          <div style={{ fontSize: 10, color: '#C9A84C', display: 'flex', alignItems: 'center', gap: 4, marginTop: 1 }}>
+            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#22C55E', display: 'inline-block', boxShadow: '0 0 5px #22c55e' }} />
+            India &amp; US Expert · Always on
           </div>
         </div>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 6 }}>
-          {['🇮🇳', '🇺🇸'].map((f) => <span key={f} style={{ fontSize: 18 }}>{f}</span>)}
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: 5 }}>
+          {['🇮🇳', '🇺🇸'].map((f) => <span key={f} style={{ fontSize: compact ? 15 : 17 }}>{f}</span>)}
         </div>
       </div>
 
       {/* Messages */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '16px 16px 8px', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: compact ? '12px 12px 6px' : '16px 16px 8px', display: 'flex', flexDirection: 'column' }}>
         {messages.map((msg, i) => <ChatMessage key={i} msg={msg} />)}
+
+        {/* Inline suggestion chips — shown when no conversation yet */}
+        {showSuggestions && (
+          <div style={{ marginBottom: 8 }}>
+            <div style={{ fontSize: 10, color: '#9ca3af', marginBottom: 6, fontWeight: 500, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              Try asking
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
+              {SUGGESTED_QUESTIONS.map((q) => (
+                <button
+                  key={q.text}
+                  onClick={() => send(q.text)}
+                  disabled={loading}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 4,
+                    padding: '4px 9px', borderRadius: 20,
+                    background: '#ffffff', border: '1px solid #e8e2d5',
+                    cursor: 'pointer', transition: 'all 0.15s',
+                    fontSize: 11, color: '#0C1B33', fontWeight: 500,
+                    lineHeight: 1.4,
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#0C1B33'; e.currentTarget.style.background = '#f0ede6' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e8e2d5'; e.currentTarget.style.background = '#ffffff' }}
+                >
+                  <span style={{ fontSize: 12 }}>{q.icon}</span>
+                  {compact ? q.short : q.text}
+                  <span style={{
+                    fontSize: 9, fontWeight: 600, padding: '1px 5px', borderRadius: 8,
+                    background: TAG_COLORS[q.tag]?.bg ?? '#f1efe8',
+                    color: TAG_COLORS[q.tag]?.text ?? '#2c2c2a',
+                    marginLeft: 1,
+                  }}>
+                    {q.tag}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {loading && (
-          <div style={{ display: 'flex', gap: 10, marginBottom: 16, alignItems: 'flex-start' }}>
+          <div style={{ display: 'flex', gap: 8, marginBottom: 14, alignItems: 'flex-start' }}>
             <div style={{
-              width: 32, height: 32, borderRadius: '50%', background: '#C9A84C',
+              width: 28, height: 28, borderRadius: '50%', background: '#C9A84C',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 12, fontWeight: 600, color: '#0C1B33', flexShrink: 0,
+              fontSize: 10, fontWeight: 700, color: '#0C1B33', flexShrink: 0,
             }}>AI</div>
-            <div style={{ background: '#ffffff', border: '1px solid #e8e2d5', borderRadius: '4px 16px 16px 16px', padding: '10px 14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e8e2d5', borderRadius: '3px 14px 14px 14px', padding: '9px 13px' }}>
               <TypingDots />
             </div>
           </div>
@@ -191,7 +227,7 @@ export function AIFinanceAssistant({ compact = false }: Props) {
         {error && (
           <div style={{
             background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 8,
-            padding: '10px 14px', fontSize: 12, color: '#dc2626', marginBottom: 12,
+            padding: '9px 13px', fontSize: 12, color: '#dc2626', marginBottom: 10,
           }}>
             {error}
           </div>
@@ -199,45 +235,15 @@ export function AIFinanceAssistant({ compact = false }: Props) {
         <div ref={bottomRef} />
       </div>
 
-      {/* Suggested questions — shown only at start */}
-      {messages.length <= 1 && (
-        <div style={{ padding: '0 16px 12px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, flexShrink: 0 }}>
-          {SUGGESTED_QUESTIONS.map((q) => (
-            <button
-              key={q.text}
-              onClick={() => send(q.text)}
-              disabled={loading}
-              style={{
-                background: '#ffffff', border: '1px solid #e8e2d5', borderRadius: 8,
-                padding: '8px 10px', cursor: 'pointer', textAlign: 'left',
-                display: 'flex', alignItems: 'flex-start', gap: 8, transition: 'border-color 0.15s',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#0C1B33')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#e8e2d5')}
-            >
-              <span style={{ fontSize: 14, flexShrink: 0 }}>{q.icon}</span>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ fontSize: 11, color: '#0C1B33', lineHeight: 1.4 }}>{q.text}</div>
-                <span style={{
-                  fontSize: 10, fontWeight: 500, padding: '1px 6px', borderRadius: 10,
-                  marginTop: 4, display: 'inline-block',
-                  background: TAG_COLORS[q.tag]?.bg ?? '#F1EFE8',
-                  color: TAG_COLORS[q.tag]?.text ?? '#2C2C2A',
-                }}>
-                  {q.tag}
-                </span>
-              </div>
-            </button>
-          ))}
-        </div>
-      )}
-
       {/* Input */}
-      <div style={{ padding: '8px 16px 14px', borderTop: '1px solid #e8e2d5', background: '#ffffff', flexShrink: 0 }}>
+      <div style={{
+        padding: compact ? '6px 12px 10px' : '8px 16px 14px',
+        borderTop: '1px solid #e8e2d5', background: '#ffffff', flexShrink: 0,
+      }}>
         <div style={{
-          display: 'flex', gap: 8, background: '#f8f5ef',
-          border: '1px solid #ddd8cc', borderRadius: 12,
-          padding: '6px 8px 6px 14px', alignItems: 'flex-end',
+          display: 'flex', gap: 7, background: '#f8f5ef',
+          border: '1px solid #ddd8cc', borderRadius: 10,
+          padding: '5px 7px 5px 12px', alignItems: 'flex-end',
         }}>
           <textarea
             ref={inputRef}
@@ -245,23 +251,23 @@ export function AIFinanceAssistant({ compact = false }: Props) {
             onChange={(e) => {
               setInput(e.target.value)
               e.target.style.height = 'auto'
-              e.target.style.height = Math.min(e.target.scrollHeight, 100) + 'px'
+              e.target.style.height = Math.min(e.target.scrollHeight, 80) + 'px'
             }}
             onKeyDown={handleKey}
-            placeholder="Ask anything about finance, investing, markets..."
+            placeholder="Ask about finance, markets, investing…"
             rows={1}
             disabled={loading}
             style={{
-              flex: 1, border: 'none', background: 'transparent',
-              resize: 'none', outline: 'none', fontSize: 13, lineHeight: 1.5,
-              color: '#0C1B33', padding: '4px 0', fontFamily: 'inherit', minHeight: 28,
+              flex: 1, border: 'none', background: 'transparent', resize: 'none',
+              outline: 'none', fontSize: compact ? 12.5 : 13, lineHeight: 1.5,
+              color: '#0C1B33', padding: '3px 0', fontFamily: 'inherit', minHeight: 24,
             }}
           />
           <button
             onClick={() => send()}
             disabled={!input.trim() || loading}
             style={{
-              width: 32, height: 32, borderRadius: 8, border: 'none',
+              width: 28, height: 28, borderRadius: 7, border: 'none',
               background: input.trim() && !loading ? '#0C1B33' : '#e8e2d5',
               cursor: input.trim() && !loading ? 'pointer' : 'not-allowed',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -269,17 +275,13 @@ export function AIFinanceAssistant({ compact = false }: Props) {
             }}
             aria-label="Send"
           >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M2 8L14 8M9 3L14 8L9 13"
-                stroke={input.trim() && !loading ? '#C9A84C' : '#9ca3af'}
-                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              />
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+              <path d="M2 8L14 8M9 3L14 8L9 13" stroke={input.trim() && !loading ? '#C9A84C' : '#9ca3af'} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>
-        <div style={{ fontSize: 10, color: '#9ca3af', marginTop: 5, textAlign: 'center' }}>
-          For educational purposes only · Not financial advice · S&amp;P Capital Services
+        <div style={{ fontSize: 9.5, color: '#b0aaa0', marginTop: 4, textAlign: 'center', letterSpacing: '0.02em' }}>
+          Educational only · Not financial advice · S&amp;P Capital Services
         </div>
       </div>
     </div>
