@@ -2,11 +2,22 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const POPULAR_SEARCHES = [
   'What is SIP?', 'US stocks from India', 'Mutual funds vs ETF',
   '401k explained', 'Bitcoin basics', 'P/E Ratio', 'LTCG Tax India',
 ]
+
+const ease = [0.25, 0.1, 0.25, 1] as const
+
+function fadeIn(delay: number) {
+  return {
+    initial: { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, delay, ease },
+  }
+}
 
 export function Hero() {
   const router = useRouter()
@@ -28,26 +39,26 @@ export function Hero() {
 
       <div className="relative z-10 px-[5vw] max-w-4xl mx-auto text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/25 rounded-full px-4 py-1.5 mb-6 animate-fade-up">
+        <motion.div {...fadeIn(0)} className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/25 rounded-full px-4 py-1.5 mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
           <span className="text-xs font-medium text-gold-300 tracking-widest uppercase">
             India &amp; US Financial Literacy Platform
           </span>
-        </div>
+        </motion.div>
 
         {/* Headline */}
-        <h1 className="font-display text-white text-4xl md:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100">
+        <motion.h1 {...fadeIn(0.1)} className="font-display text-white text-4xl md:text-6xl font-bold leading-tight mb-5">
           Your Complete Guide to<br />
           <em className="text-gold not-italic">Financial Independence</em>
-        </h1>
+        </motion.h1>
 
-        <p className="text-white/60 text-lg leading-relaxed mb-9 font-light animate-fade-up delay-200 max-w-2xl mx-auto">
+        <motion.p {...fadeIn(0.2)} className="text-white/60 text-lg leading-relaxed mb-9 font-light max-w-2xl mx-auto">
           Everything you need to understand investing, markets, and money — from first SIP to
           advanced options strategies. Trusted, unbiased, always free.
-        </p>
+        </motion.p>
 
         {/* Search */}
-        <div className="flex max-w-2xl mx-auto bg-white rounded-xl overflow-hidden shadow-2xl mb-5 animate-fade-up delay-300">
+        <motion.div {...fadeIn(0.3)} className="flex max-w-2xl mx-auto bg-white rounded-xl overflow-hidden shadow-2xl mb-5">
           <input
             type="text"
             value={query}
@@ -62,10 +73,10 @@ export function Hero() {
           >
             Search →
           </button>
-        </div>
+        </motion.div>
 
         {/* Popular tags */}
-        <div className="flex flex-wrap gap-2 justify-center animate-fade-up delay-300">
+        <motion.div {...fadeIn(0.4)} className="flex flex-wrap gap-2 justify-center">
           {POPULAR_SEARCHES.map((tag) => (
             <button
               key={tag}
@@ -75,22 +86,31 @@ export function Hero() {
               {tag}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats */}
-        <div className="flex flex-wrap justify-center gap-10 mt-14 pt-10 border-t border-white/[0.08] animate-fade-up delay-300">
+        <motion.div
+          {...fadeIn(0.5)}
+          className="flex flex-wrap justify-center gap-10 mt-14 pt-10 border-t border-white/[0.08]"
+        >
           {[
             { num: '2', label: 'Markets covered' },
             { num: '1,000+', label: 'Finance terms' },
             { num: '8', label: 'Free calculators' },
             { num: '16+', label: 'Topic categories' },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
+          ].map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.55 + i * 0.07, ease }}
+              className="text-center"
+            >
               <div className="font-display text-gold text-2xl font-semibold">{s.num}</div>
               <div className="text-white/40 text-xs mt-0.5">{s.label}</div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
