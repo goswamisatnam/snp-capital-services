@@ -1,8 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
-  <rect width="1200" height="480" fill="#0b1226" />
-  <g fill="#fff" font-family="Inter, Arial, sans-serif">
-    <text x="60" y="160" font-size="44" font-weight="700">How Indians Can Invest in US Stocks</text>
-    <text x="60" y="210" font-size="22" opacity="0.9">Complete Guide 2025</text>
-    <circle cx="1040" cy="120" r="64" fill="#ffb020" opacity="0.95" />
-  </g>
+  <defs>
+    <linearGradient id="bg-us" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2752"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="chart-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#bg-us)"/>
+
+  <pattern id="dots-us" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="white" opacity="0.10"/>
+  </pattern>
+  <rect width="1200" height="480" fill="url(#dots-us)"/>
+
+  <circle cx="1100" cy="-60" r="220" fill="white" opacity="0.04"/>
+  <circle cx="60" cy="460" r="130" fill="white" opacity="0.04"/>
+
+  <!-- India to US visual -->
+  <circle cx="130" cy="185" r="80" fill="white" opacity="0.06"/>
+  <text x="130" y="202" font-family="system-ui, Arial, sans-serif" font-size="52" text-anchor="middle">🇮🇳</text>
+
+  <line x1="225" y1="185" x2="330" y2="185" stroke="white" stroke-opacity="0.35" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <polygon points="335,179 350,185 335,191" fill="white" opacity="0.45"/>
+  <text x="280" y="175" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.55" text-anchor="middle">LRS</text>
+
+  <circle cx="415" cy="185" r="80" fill="white" opacity="0.06"/>
+  <text x="415" y="202" font-family="system-ui, Arial, sans-serif" font-size="52" text-anchor="middle">🇺🇸</text>
+
+  <!-- Mini chart -->
+  <polyline points="80,360 150,335 220,308 300,270 380,245 460,210 520,178" fill="none" stroke="#60a5fa" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="80,360 150,335 220,308 300,270 380,245 460,210 520,178 520,390 80,390" fill="url(#chart-fill)"/>
+  <circle cx="520" cy="178" r="6" fill="#60a5fa"/>
+
+  <!-- Right text -->
+  <text x="600" y="115" font-family="system-ui, Arial, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="-1">How Indians Can</text>
+  <text x="600" y="168" font-family="system-ui, Arial, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="-1">Invest in US Stocks</text>
+  <text x="602" y="218" font-family="system-ui, Arial, sans-serif" font-size="21" fill="white" opacity="0.72">Complete Guide 2025</text>
+  <rect x="602" y="242" width="80" height="4" rx="2" fill="#60a5fa"/>
+
+  <rect x="600" y="272" width="175" height="68" rx="12" fill="white" opacity="0.08"/>
+  <text x="618" y="295" font-family="system-ui, Arial, sans-serif" font-size="12" fill="white" opacity="0.55">LRS Limit / Year</text>
+  <text x="618" y="328" font-family="system-ui, Arial, sans-serif" font-size="30" font-weight="700" fill="#93c5fd">$250,000</text>
+
+  <rect x="790" y="272" width="175" height="68" rx="12" fill="white" opacity="0.08"/>
+  <text x="808" y="295" font-family="system-ui, Arial, sans-serif" font-size="12" fill="white" opacity="0.55">LTCG Holding</text>
+  <text x="808" y="328" font-family="system-ui, Arial, sans-serif" font-size="30" font-weight="700" fill="#93c5fd">24 Months</text>
+
+  <text x="600" y="382" font-family="system-ui, Arial, sans-serif" font-size="14" fill="white" opacity="0.45">Platforms: Vested · INDmoney · Groww US · Winvesta</text>
+
+  <rect x="600" y="412" width="130" height="30" rx="15" fill="white" opacity="0.12"/>
+  <text x="665" y="431" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.9" text-anchor="middle">Intermediate</text>
+  <rect x="742" y="412" width="110" height="30" rx="15" fill="white" opacity="0.12"/>
+  <text x="797" y="431" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.9" text-anchor="middle">Both Markets</text>
 </svg>

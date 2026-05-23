@@ -1,14 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="g2" x1="0" x2="1">
-      <stop offset="0%" stop-color="#1f2937" />
-      <stop offset="100%" stop-color="#7c3aed" />
+    <linearGradient id="bg-crypto" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1408"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="btc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="eth-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="480" fill="url(#g2)" />
-  <g fill="#fff" font-family="Inter, Arial, sans-serif">
-    <text x="60" y="160" font-size="44" font-weight="700">Bitcoin vs Ethereum</text>
-    <text x="60" y="210" font-size="22" opacity="0.95">Fundamental Differences Explained</text>
-    <circle cx="1040" cy="120" r="44" fill="#f59e0b" opacity="0.95" />
-  </g>
+
+  <rect width="1200" height="480" fill="url(#bg-crypto)"/>
+
+  <pattern id="dots-crypto" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="white" opacity="0.08"/>
+  </pattern>
+  <rect width="1200" height="480" fill="url(#dots-crypto)"/>
+
+  <circle cx="1100" cy="-60" r="240" fill="white" opacity="0.03"/>
+  <circle cx="60" cy="520" r="180" fill="white" opacity="0.03"/>
+
+  <!-- BTC coin -->
+  <circle cx="130" cy="180" r="100" fill="#1c1408" opacity="0.8" stroke="#f59e0b" stroke-width="3" stroke-opacity="0.6"/>
+  <circle cx="130" cy="180" r="82" fill="url(#btc-grad)" opacity="0.15"/>
+  <text x="130" y="155" font-family="system-ui, Arial, sans-serif" font-size="13" font-weight="700" fill="#fcd34d" opacity="0.7" text-anchor="middle">BITCOIN</text>
+  <text x="130" y="200" font-family="system-ui, Arial, sans-serif" font-size="52" font-weight="900" fill="#fcd34d" text-anchor="middle">B</text>
+  <line x1="125" y1="168" x2="125" y2="210" stroke="#fcd34d" stroke-width="2.5" opacity="0.9"/>
+  <line x1="113" y1="175" x2="141" y2="175" stroke="#fcd34d" stroke-width="2.5" opacity="0.9"/>
+  <line x1="113" y1="185" x2="141" y2="185" stroke="#fcd34d" stroke-width="2.5" opacity="0.9"/>
+  <line x1="125" y1="163" x2="125" y2="165" stroke="#fcd34d" stroke-width="2.5" opacity="0.7"/>
+  <line x1="125" y1="213" x2="125" y2="215" stroke="#fcd34d" stroke-width="2.5" opacity="0.7"/>
+
+  <!-- VS divider -->
+  <circle cx="310" cy="180" r="32" fill="white" opacity="0.08"/>
+  <text x="310" y="188" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="800" fill="white" opacity="0.7" text-anchor="middle">VS</text>
+
+  <!-- ETH coin -->
+  <circle cx="490" cy="180" r="100" fill="#1c1408" opacity="0.8" stroke="#7c3aed" stroke-width="3" stroke-opacity="0.6"/>
+  <circle cx="490" cy="180" r="82" fill="url(#eth-grad)" opacity="0.12"/>
+  <text x="490" y="155" font-family="system-ui, Arial, sans-serif" font-size="13" font-weight="700" fill="#c4b5fd" opacity="0.7" text-anchor="middle">ETHEREUM</text>
+  <!-- ETH diamond shape -->
+  <polygon points="490,158 510,185 490,196 470,185" fill="none" stroke="#c4b5fd" stroke-width="2.5" opacity="0.9"/>
+  <polygon points="490,196 510,185 490,215" fill="#c4b5fd" opacity="0.25"/>
+  <polygon points="490,196 470,185 490,215" fill="#c4b5fd" opacity="0.15"/>
+
+  <!-- BTC vs ETH chart lines -->
+  <polyline points="60,360 120,340 180,320 240,330 300,290 360,270 420,250 480,230 540,215" fill="none" stroke="#fcd34d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <polyline points="60,380 120,365 180,350 240,370 300,330 360,310 420,285 480,258 540,228" fill="none" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" stroke-dasharray="8 4"/>
+
+  <!-- Right text -->
+  <text x="610" y="115" font-family="system-ui, Arial, sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">Bitcoin</text>
+  <text x="610" y="175" font-family="system-ui, Arial, sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">vs Ethereum</text>
+  <text x="612" y="222" font-family="system-ui, Arial, sans-serif" font-size="22" fill="white" opacity="0.70">Fundamental Differences Explained</text>
+  <rect x="612" y="246" width="80" height="4" rx="2" fill="#fcd34d"/>
+
+  <rect x="610" y="276" width="200" height="68" rx="12" fill="white" opacity="0.07"/>
+  <text x="628" y="300" font-family="system-ui, Arial, sans-serif" font-size="12" fill="#fcd34d" opacity="0.6">Bitcoin</text>
+  <text x="628" y="332" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="700" fill="#fcd34d">Digital Gold</text>
+
+  <rect x="826" y="276" width="200" height="68" rx="12" fill="white" opacity="0.07"/>
+  <text x="844" y="300" font-family="system-ui, Arial, sans-serif" font-size="12" fill="#c4b5fd" opacity="0.6">Ethereum</text>
+  <text x="844" y="332" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="700" fill="#c4b5fd">Smart Contracts</text>
+
+  <text x="610" y="388" font-family="system-ui, Arial, sans-serif" font-size="14" fill="white" opacity="0.4">Covers: tech differences · investment thesis · portfolio allocation · risk</text>
+
+  <rect x="610" y="415" width="100" height="30" rx="15" fill="white" opacity="0.12"/>
+  <text x="660" y="434" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.9" text-anchor="middle">Beginner</text>
+  <rect x="722" y="415" width="110" height="30" rx="15" fill="white" opacity="0.12"/>
+  <text x="777" y="434" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.9" text-anchor="middle">Both Markets</text>
 </svg>

@@ -17,7 +17,7 @@ export function TopicCategories() {
             All <em className="text-gold not-italic">finance topics</em> covered
           </h2>
         </div>
-        <Link href="/topics" className="text-sm font-medium text-teal-400 hover:text-navy transition-colors">
+        <Link href="/blog" className="text-sm font-medium text-teal-400 hover:text-navy transition-colors">
           View all topics →
         </Link>
       </div>

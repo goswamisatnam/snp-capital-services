@@ -1,8 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
-  <rect width="1200" height="480" fill="#08111b" />
-  <g fill="#fff" font-family="Inter, Arial, sans-serif">
-    <text x="60" y="160" font-size="40" font-weight="700">401(k) vs Roth IRA vs NPS</text>
-    <text x="60" y="205" font-size="20" opacity="0.95">The Ultimate Retirement Comparison</text>
-    <rect x="60" y="250" width="180" height="6" rx="3" fill="#10b981" />
-  </g>
+  <defs>
+    <linearGradient id="bg-ret" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#431407"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="pillar1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="pillar2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="pillar3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#bg-ret)"/>
+
+  <pattern id="dots-ret" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="white" opacity="0.09"/>
+  </pattern>
+  <rect width="1200" height="480" fill="url(#dots-ret)"/>
+
+  <circle cx="1100" cy="-60" r="230" fill="white" opacity="0.04"/>
+  <circle cx="60" cy="500" r="160" fill="white" opacity="0.03"/>
+
+  <!-- Base line -->
+  <line x1="50" y1="370" x2="520" y2="370" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+
+  <!-- Pillar 1 — 401(k) -->
+  <rect x="70" y="200" width="110" height="170" rx="8" fill="url(#pillar1)" opacity="0.9"/>
+  <rect x="70" y="196" width="110" height="20" rx="8" fill="#fdba74"/>
+  <text x="125" y="211" font-family="system-ui, Arial, sans-serif" font-size="12" font-weight="600" fill="#431407" text-anchor="middle">401(k)</text>
+  <text x="125" y="260" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">Pre-Tax</text>
+  <text x="125" y="288" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.8" text-anchor="middle">$23,500</text>
+  <text x="125" y="306" font-family="system-ui, Arial, sans-serif" font-size="11" fill="white" opacity="0.6" text-anchor="middle">/ year limit</text>
+
+  <!-- Pillar 2 — Roth IRA -->
+  <rect x="200" y="140" width="110" height="230" rx="8" fill="url(#pillar2)" opacity="0.9"/>
+  <rect x="200" y="136" width="110" height="20" rx="8" fill="#fde68a"/>
+  <text x="255" y="151" font-family="system-ui, Arial, sans-serif" font-size="12" font-weight="600" fill="#431407" text-anchor="middle">Roth IRA</text>
+  <text x="255" y="200" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">Tax-Free</text>
+  <text x="255" y="228" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.8" text-anchor="middle">$7,000</text>
+  <text x="255" y="246" font-family="system-ui, Arial, sans-serif" font-size="11" fill="white" opacity="0.6" text-anchor="middle">/ year limit</text>
+
+  <!-- Pillar 3 — NPS -->
+  <rect x="330" y="110" width="110" height="260" rx="8" fill="url(#pillar3)" opacity="0.9"/>
+  <rect x="330" y="106" width="110" height="20" rx="8" fill="#6ee7b7"/>
+  <text x="385" y="121" font-family="system-ui, Arial, sans-serif" font-size="12" font-weight="600" fill="#064e3b" text-anchor="middle">NPS</text>
+  <text x="385" y="170" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">80CCD</text>
+  <text x="385" y="198" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.8" text-anchor="middle">₹50,000</text>
+  <text x="385" y="216" font-family="system-ui, Arial, sans-serif" font-size="11" fill="white" opacity="0.6" text-anchor="middle">extra deduction</text>
+
+  <!-- Right side text -->
+  <text x="580" y="115" font-family="system-ui, Arial, sans-serif" font-size="46" font-weight="800" fill="white" letter-spacing="-1">401(k) vs Roth IRA</text>
+  <text x="580" y="168" font-family="system-ui, Arial, sans-serif" font-size="46" font-weight="800" fill="white" letter-spacing="-1">vs NPS</text>
+  <text x="582" y="215" font-family="system-ui, Arial, sans-serif" font-size="22" fill="white" opacity="0.72">The Ultimate Retirement Comparison</text>
+  <rect x="582" y="240" width="80" height="4" rx="2" fill="#fdba74"/>
+
+  <!-- Key insight box -->
+  <rect x="580" y="268" width="540" height="72" rx="12" fill="white" opacity="0.07"/>
+  <text x="600" y="293" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.5">NRI Strategy — maximize tax efficiency across two countries</text>
+  <text x="600" y="325" font-family="system-ui, Arial, sans-serif" font-size="18" font-weight="600" fill="#fdba74">DTAA lets you avoid double taxation on both</text>
+
+  <text x="580" y="386" font-family="system-ui, Arial, sans-serif" font-size="14" fill="white" opacity="0.4">Covers: DTAA implications · Contribution limits · Tax treatment · Withdrawal rules</text>
+
+  <rect x="580" y="414" width="100" height="30" rx="15" fill="white" opacity="0.12"/>
+  <text x="630" y="433" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.9" text-anchor="middle">Advanced</text>
+  <rect x="692" y="414" width="110" height="30" rx="15" fill="white" opacity="0.12"/>
+  <text x="747" y="433" font-family="system-ui, Arial, sans-serif" font-size="13" fill="white" opacity="0.9" text-anchor="middle">Both Markets</text>
 </svg>

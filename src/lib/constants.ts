@@ -207,22 +207,22 @@ export const LEARNING_PATHS: LearningPath[] = [
 
 // ── Topic Categories ──────────────────────
 export const TOPIC_CATEGORIES: TopicCategory[] = [
-  { emoji: '📈', name: 'Stock Markets',     count: '120+ articles', href: '/investing/stocks',   tag: 'both'  },
-  { emoji: '🏦', name: 'Mutual Funds',      count: '85+ articles',  href: '/mutual-funds',        tag: 'india' },
-  { emoji: '💼', name: 'ETFs',              count: '60+ articles',  href: '/etfs',                tag: 'both'  },
-  { emoji: '₿',  name: 'Cryptocurrency',    count: '70+ articles',  href: '/crypto',              tag: 'both'  },
-  { emoji: '🏠', name: 'Real Estate',       count: '45+ articles',  href: '/real-estate',         tag: 'both'  },
-  { emoji: '📊', name: 'Options & F&O',     count: '55+ articles',  href: '/options',             tag: 'both'  },
-  { emoji: '💰', name: 'Personal Finance',  count: '90+ articles',  href: '/personal-finance',    tag: 'both'  },
-  { emoji: '🏖️', name: 'Retirement',        count: '65+ articles',  href: '/retirement',          tag: 'both'  },
-  { emoji: '🧾', name: 'Taxation',          count: '75+ articles',  href: '/taxes',               tag: 'both'  },
-  { emoji: '🌍', name: 'Macroeconomics',    count: '50+ articles',  href: '/economics',           tag: 'both'  },
-  { emoji: '🏢', name: 'Corporate Finance', count: '40+ articles',  href: '/corporate-finance',   tag: 'both'  },
-  { emoji: '🛡️', name: 'Insurance',         count: '35+ articles',  href: '/insurance',           tag: 'india' },
-  { emoji: '🔗', name: 'Bonds',             count: '48+ articles',  href: '/bonds',               tag: 'both'  },
-  { emoji: '💱', name: 'Forex & Currency',  count: '38+ articles',  href: '/forex',               tag: 'both'  },
-  { emoji: '🇮🇳', name: 'India Markets',     count: '100+ articles', href: '/markets/india',       tag: 'india' },
-  { emoji: '🇺🇸', name: 'US Markets',        count: '95+ articles',  href: '/markets/us',          tag: 'us'    },
+  { emoji: '📈', name: 'Stock Markets',     count: '120+ articles', href: '/investing/stock-markets',       tag: 'both'  },
+  { emoji: '🏦', name: 'Mutual Funds',      count: '85+ articles',  href: '/investing/mutual-funds',        tag: 'india' },
+  { emoji: '💼', name: 'ETFs',              count: '60+ articles',  href: '/investing/etfs',                tag: 'both'  },
+  { emoji: '₿',  name: 'Cryptocurrency',    count: '70+ articles',  href: '/investing/cryptocurrency',      tag: 'both'  },
+  { emoji: '🏠', name: 'Real Estate',       count: '45+ articles',  href: '/investing/real-estate',         tag: 'both'  },
+  { emoji: '📊', name: 'Options & F&O',     count: '55+ articles',  href: '/trading/futures-and-options',   tag: 'both'  },
+  { emoji: '💰', name: 'Personal Finance',  count: '90+ articles',  href: '/personal-finance',              tag: 'both'  },
+  { emoji: '🏖️', name: 'Retirement',        count: '65+ articles',  href: '/personal-finance/retirement',   tag: 'both'  },
+  { emoji: '🧾', name: 'Taxation',          count: '75+ articles',  href: '/personal-finance/tax-planning', tag: 'both'  },
+  { emoji: '🌍', name: 'Macroeconomics',    count: '50+ articles',  href: '/blog',                          tag: 'both'  },
+  { emoji: '🏢', name: 'Corporate Finance', count: '40+ articles',  href: '/blog',                          tag: 'both'  },
+  { emoji: '🛡️', name: 'Insurance',         count: '35+ articles',  href: '/personal-finance/insurance',    tag: 'india' },
+  { emoji: '🔗', name: 'Bonds',             count: '48+ articles',  href: '/investing/bonds',               tag: 'both'  },
+  { emoji: '💱', name: 'Forex & Currency',  count: '38+ articles',  href: '/dictionary',                    tag: 'both'  },
+  { emoji: '🇮🇳', name: 'India Markets',     count: '100+ articles', href: '/markets/india',                 tag: 'india' },
+  { emoji: '🇺🇸', name: 'US Markets',        count: '95+ articles',  href: '/markets/us',                    tag: 'us'    },
 ]
 
 // ── Featured Articles ─────────────────────
