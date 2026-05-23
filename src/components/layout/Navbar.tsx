@@ -79,17 +79,20 @@ export function Navbar() {
       {/* ── Row 2: Nav with dropdowns (desktop) ─ */}
       <div className="hidden md:flex items-center px-[5vw] border-t border-cream-300 overflow-x-auto scrollbar-hide relative">
           {NAV_ITEMS.map((item) => {
-          const hasChildren = !!(item.items?.length || item.groups?.length)
-          const isOpen = openDropdown === item.label
+            const hasChildren = !!(item.items?.length || item.groups?.length)
+            const isOpen = openDropdown === item.label
 
-          return (
-            <div key={item.label} className="relative">
+            return (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setOpenDropdown(item.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
               {hasChildren ? (
                 <button
                   type="button"
                   onClick={() => setOpenDropdown(isOpen ? null : item.label)}
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
                   className={`flex items-center gap-1 px-3.5 py-2.5 text-sm whitespace-nowrap border-b-2 transition-colors ${
                     isOpen
                       ? 'text-navy border-navy font-medium'
