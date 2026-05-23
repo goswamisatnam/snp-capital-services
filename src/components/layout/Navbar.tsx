@@ -53,10 +53,10 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-2 ml-auto shrink-0">
           <Link
-            href="/blog"
+            href="/calculators"
             className="text-xs border border-cream-300 text-navy rounded-md px-3 py-1.5 hover:border-navy transition-colors"
           >
-            Blogs
+            Calculators
           </Link>
           <Link
             href="/#newsletter"
