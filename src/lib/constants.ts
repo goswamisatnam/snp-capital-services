@@ -102,7 +102,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Dictionary',   href: '/dictionary',   icon: '📖' },
-  { label: 'Calculators',  href: '/calculators',  icon: '🧮' },
+  { label: 'Blogs',         href: '/blog',         icon: '📰' },
 ]
 
 // ── Market Ticker ────────────────────────
